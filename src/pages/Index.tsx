@@ -1,12 +1,22 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useNavigate } from "react-router-dom"
+import { MedicalHeader } from "@/components/medical/header"
+import { HeroSection } from "@/components/medical/hero-section"
+import { FeaturesSection } from "@/components/medical/features-section"
+import { MedicalFooter } from "@/components/medical/footer"
 
 const Index = () => {
+  const navigate = useNavigate()
+
+  const handleGetStarted = () => {
+    navigate("/login")
+  }
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-gradient-bg">
+      <MedicalHeader />
+      <HeroSection onGetStarted={handleGetStarted} />
+      <FeaturesSection />
+      <MedicalFooter />
     </div>
   );
 };
